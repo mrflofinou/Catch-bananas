@@ -42,8 +42,8 @@ class Characters:
                 self.y = self.case_y * constants.size_case
 
         if direction == 'down':
-            if self.case_y < (constantes.number_cases_side - 1):
-                self.case_y +=
+            if self.case_y < (constants.number_cases_side - 1):
+                self.case_y += 1
                 self.y = self.case_y * constants.size_case
 
 class Bananas:

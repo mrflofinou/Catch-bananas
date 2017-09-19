@@ -12,7 +12,7 @@ def main():
     Main function of programm
     """
 
-    dk = game.aracters()
+    dk = game.Characters()
     bananas = game.Bananas()
     pygame.init()
     window = pygame.display.set_mode((450, 450))
