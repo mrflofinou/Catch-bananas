@@ -3,26 +3,26 @@
 import pygame
 from pygame.locals import *
 
-from classes import *
-from constantes import *
+import classes
+import constantes
 
 def main():
     """
     Fonction principale du programmes
     """
 
-    dk = Personnage()
-    bananes = Bananes()
+    dk = classes.Characters()
+    bananas = classes.Bananas()
     pygame.init()
-    fenetre = pygame.display.set_mode((450, 450))
-    pygame.display.set_caption(titre)
-    fond = pygame.image.load(sol).convert()
-    avatar = pygame.image.load(perso).convert_alpha()
-    image_banane = pygame.image.load(banane).convert_alpha()
+    window = pygame.display.set_mode((450, 450))
+    pygame.display.set_caption(constantes.title)
+    background = pygame.image.load(constantes.ground).convert()
+    avatar = pygame.image.load(constantes.character).convert_alpha()
+    picture_banana = pygame.image.load(constantes.banana).convert_alpha()
     pygame.key.set_repeat(400, 30)
     start_ticks=pygame.time.get_ticks() #starter tick
 
-    gain = 0
+    score = 0
     continuer = 1
     while continuer:
         pygame.time.Clock().tick(30)
@@ -31,28 +31,28 @@ def main():
                 continuer = 0
             if event.type == KEYDOWN:
                 if event.key == K_RIGHT:
-                    dk.deplacement('droite')
+                    dk.move('right')
                 if event.key == K_LEFT:
-                    dk.deplacement('gauche')
+                    dk.move('left')
                 if event.key == K_UP:
-                    dk.deplacement('haut')
+                    dk.move('up')
                 if event.key == K_DOWN:
-                    dk.deplacement('bas')
+                    dk.move('down')
 
 
-        fenetre.blit(fond, (0, 0))
-        fenetre.blit(avatar, (dk.x, dk.y))
-        fenetre.blit(image_banane, (bananes.x, bananes.y))
+        window.blit(background, (0, 0))
+        window.blit(avatar, (dk.x, dk.y))
+        window.blit(picture_banana, (bananas.x, bananas.y))
         pygame.display.flip()
         seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
 
         if seconds>20: # if more than 10 seconds close the game
             break
-        if dk.x == bananes.x and dk.y == bananes.y:
-            bananes = Bananes()
-            gain += 1
+        if dk.x == bananas.x and dk.y == bananas.y:
+            bananas = classes.Bananas()
+            score += 1
 
-    print("Vous avez {} points".format(gain))
+    print("Vous avez {} points".format(score))
 
 
 if __name__ == "__main__":

@@ -1,23 +1,23 @@
 """
-Ce fichier contient les classes du programmes
-Il y a deux classes:
-La classe : personnage
-La classe Plateau
+This file contains the classes of the programm
+There are two classes:
+- Characters
+- Board
 """
 import random
 
 import pygame
 from pygame.locals import *
 
-from constantes import *
+import constantes
 
-#class Plateau:
-#    def affichage(self, fenetre):
-#        fond = pygame.image.load(sol).convert()
-#        fenetre.blit(fond, (0, 0))
+#class Board:
+#    def affichage(self, window):
+#        background = pygame.image.load(floar).convert()
+#        window.blit(background, (0, 0))
 
 
-class Personnage:
+class Characters:
     def __init__(self):
         #self.avatar = pygame.image.load(perso).convert_alpha()
         self.case_x = 0
@@ -25,31 +25,31 @@ class Personnage:
         self.x = 0
         self.y = 420
 
-    def deplacement(self, direction):
-        if direction == 'droite':
-            if self.case_x < (nombre_sprite_cote - 1):
+    def move(self, direction):
+        if direction == 'right':
+            if self.case_x < (constantes.number_cases_side - 1):
                 self.case_x += 1
-                self.x = self.case_x * taille_sprite
+                self.x = self.case_x * constantes.size_case
 
-        if direction == 'gauche':
+        if direction == 'left':
             if self.case_x > 0:
                 self.case_x -= 1
-                self.x = self.case_x * taille_sprite
+                self.x = self.case_x * constantes.size_case
 
-        if direction == 'haut':
+        if direction == 'up':
             if self.case_y > 0:
                 self.case_y -= 1
-                self.y = self.case_y * taille_sprite
+                self.y = self.case_y * constantes.size_case
 
-        if direction == 'bas':
-            if self.case_y < (nombre_sprite_cote - 1):
+        if direction == 'down':
+            if self.case_y < (constantes.number_cases_side - 1):
                 self.case_y += 1
-                self.y = self.case_y * taille_sprite
+                self.y = self.case_y * constantes.size_case
 
-class Bananes:
+class Bananas:
     def __init__(self):
         #self.avatar = pygame.image.load(banane).convert_alpha()
         self.case_x = random.randint(0, 14)
         self.case_y = random.randint(0, 14)
-        self.x = self.case_x * taille_sprite
-        self.y = self.case_y * taille_sprite
+        self.x = self.case_x * constantes.size_case
+        self.y = self.case_y * constantes.size_case

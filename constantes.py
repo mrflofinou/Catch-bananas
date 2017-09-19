@@ -1,11 +1,11 @@
 """
-Ce fichier contient les accès vers les images
+This file contains constants and paths of picture for the game
 """
 
-nombre_sprite_cote = 15
-taille_sprite = 30
+number_cases_side = 15
+size_case = 30
 
-titre = "Attrap' bananes"
-sol = "pictures/fond.jpg"
-perso = "pictures/dk_droite.png"
-banane = "pictures/arrivee.png"
+title = "Catch bananas"
+ground = "pictures/ground.jpg"
+character = "pictures/dk.png"
+banana = "pictures/arrival.png"
