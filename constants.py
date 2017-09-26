@@ -1,5 +1,5 @@
 """
-This file contains constants and paths of picture for the game
+This file contains constants and paths of pictures for the game
 """
 
 number_cases_side = 15

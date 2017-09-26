@@ -1,6 +1,10 @@
 #! /usr/bin/env python3
 # coding: utf-8
 
+"""
+This file contains the code of the game
+"""
+
 import pygame
 from pygame.locals import *
 
@@ -21,7 +25,7 @@ def main():
     avatar = pygame.image.load(constants.character).convert_alpha()
     picture_banana = pygame.image.load(constants.banana).convert_alpha()
     pygame.key.set_repeat(400, 30)
-    start_ticks=pygame.time.get_ticks() #starter tick
+    start_ticks = pygame.time.get_ticks() #starter tick
 
     score = 0
     loop = 1
@@ -45,9 +49,9 @@ def main():
         window.blit(avatar, (dk.x, dk.y))
         window.blit(picture_banana, (bananas.x, bananas.y))
         pygame.display.flip()
-        seconds=(pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
+        seconds = (pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
 
-        if seconds>20: # if more than 10 seconds close the game
+        if seconds > 20: # if more than 20 seconds close the game
             break
         if dk.x == bananas.x and dk.y == bananas.y:
             bananas = game.Bananas()
