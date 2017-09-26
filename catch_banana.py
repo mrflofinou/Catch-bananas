@@ -19,7 +19,7 @@ def main():
     dk = game.Characters()
     bananas = game.Bananas()
     pygame.init()
-    window = pygame.display.set_mode((450, 450))
+    window = pygame.display.set_mode((constants.number_pixel_side, constants.number_pixel_side))
     pygame.display.set_caption(constants.title)
     background = pygame.image.load(constants.ground).convert()
     avatar = pygame.image.load(constants.character).convert_alpha()
@@ -43,17 +43,14 @@ def main():
                     dk.move('up')
                 if event.key == K_DOWN:
                     dk.move('down')
-
-
         window.blit(background, (0, 0))
-        window.blit(avatar, (dk.x, dk.y))
-        window.blit(picture_banana, (bananas.x, bananas.y))
+        window.blit(avatar, (dk.pixels_x, dk.pixels_y))
+        window.blit(picture_banana, (bananas.pixels_x, bananas.pixels_y))
         pygame.display.flip()
         seconds = (pygame.time.get_ticks()-start_ticks)/1000 #calculate how many seconds
-
         if seconds > 20: # if more than 20 seconds close the game
             break
-        if dk.x == bananas.x and dk.y == bananas.y:
+        if dk.pixels_x == bananas.pixels_x and dk.pixels_y == bananas.pixels_y:
             bananas = game.Bananas()
             score += 1
 
