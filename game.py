@@ -46,5 +46,5 @@ class Bananas:
     This class create a banana with a random position
     """
     def __init__(self):
-        self.pixels_x = random.randint(0, 14) * constants.size_sprite
-        self.pixels_y = random.randint(0, 14) * constants.size_sprite
+        self.pixels_x = random.randrange(0, 420, 30)
+        self.pixels_y = random.randrange(0, 420, 30)
